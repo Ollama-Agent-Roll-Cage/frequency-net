@@ -19,12 +19,12 @@ This paper presents a novel approach to image preprocessing that combines spatia
 \section{Introduction}
 Image generation models often struggle with maintaining consistent spatial relationships during translation and rotation operations. Traditional approaches typically rely on spatial-domain processing, which can lead to aliasing artifacts and loss of high-frequency details. This work addresses these limitations by implementing a frequency-aware preprocessing pipeline that maintains signal continuity while preserving important image features.
 
-Our approach is motivated by recent advances in generative models, particularly StyleGAN3's innovations in alias-free generation. However, while StyleGAN3 focuses on the generator architecture itself, we adapt these principles to create a versatile preprocessing framework that can enhance any image translation system. The key insight is that by carefully managing both spatial and frequency domain representations, we can achieve better equivariance properties without sacrificing computational efficiency.
+Our approach is motivated by the groundbreaking work of \cite{stylegan3} on alias-free generation. While StyleGAN3 demonstrated that careful signal processing and continuous representations are crucial for translation and rotation equivariance, we adapt and extend these principles to create a versatile preprocessing framework. The key insight from StyleGAN3 - that signal processing in generative models must be treated with rigorous care to prevent unwanted coordinate dependencies - forms the theoretical foundation of our work. However, while StyleGAN3 focuses on the generator architecture itself, we adapt these principles to create a preprocessing framework that can enhance any image translation system. The key insight is that by carefully managing both spatial and frequency domain representations, we can achieve better equivariance properties without sacrificing computational efficiency.
 
 \section{Methodology}
 
-\subsection{Architectural Overview}
-The system implements a hybrid neural network architecture that combines traditional convolutional layers with Fourier domain processing. Unlike conventional neural networks that operate purely in the spatial domain, our architecture consists of three main components:
+\subsection{FrequencyNet: A Dual-Domain Neural Architecture}
+We introduce FrequencyNet, a hybrid neural network architecture that combines traditional convolutional layers with Fourier domain processing. Unlike conventional neural networks that operate purely in the spatial domain, our architecture consists of three main components:
 
 \begin{enumerate}
     \item \textbf{Spatial Processing Network}: A lightweight convolutional neural network with the following structure:
@@ -280,7 +280,14 @@ Future research directions include:
 
 \bibliographystyle{plain}
 \begin{thebibliography}{9}
-\bibitem{stylegan3} Karras, T., et al. (2021). Alias-Free Generative Adversarial Networks. NeurIPS.
+\bibitem{stylegan3} Karras, T., Aittala, M., Laine, S., Härkönen, E., Hellsten, J., Lehtinen, J., \& Aila, T. (2021). Alias-Free Generative Adversarial Networks. In Advances in Neural Information Processing Systems 34 (NeurIPS). GitHub: https://github.com/NVlabs/stylegan3
+
+\bibitem{stylegan3-detail} Karras, T., Aittala, M., Laine, S., Härkönen, E., Hellsten, J., Lehtinen, J., \& Aila, T. (2021). 
+"Alias-Free Generative Adversarial Networks."
+\textit{Advances in Neural Information Processing Systems 34 (NeurIPS)}. 
+NVIDIA \& Aalto University.
+Abstract: We observe that despite their hierarchical convolutional nature, the synthesis process of typical generative adversarial networks depends on absolute pixel coordinates in an unhealthy manner. This manifests itself as, e.g., detail appearing to be glued to image coordinates instead of the surfaces of depicted objects. We trace the root cause to careless signal processing that causes aliasing in the generator network. Interpreting all signals in the network as continuous, we derive generally applicable, small architectural changes that guarantee that unwanted information cannot leak into the hierarchical synthesis process. The resulting networks match the FID of StyleGAN2 but differ dramatically in their internal representations, and they are fully equivariant to translation and rotation even at subpixel scales. Our results pave the way for generative models better suited for video and animation.
+
 \bibitem{cyclegan} Zhu, J. Y., et al. (2017). Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks. ICCV.
 \end{thebibliography}
 

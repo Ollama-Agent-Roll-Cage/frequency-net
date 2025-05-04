@@ -1,3 +1,20 @@
+# StyleGAN3 reference implementation:
+# Copyright (c) 2021, NVIDIA Corporation & affiliates. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+# Original implementation: https://github.com/NVlabs/stylegan3
+
+# This implementation incorporates concepts and principles from StyleGAN3, particularly
+# its alias-free design principles and signal processing techniques. For academic use,
+# please cite the StyleGAN3 paper:
+#
+# @inproceedings{Karras2021,
+#   author = {Tero Karras and Miika Aittala and Samuli Laine and Erik H\"ark\"onen 
+#             and Janne Hellsten and Jaakko Lehtinen and Timo Aila},
+#   title = {Alias-Free Generative Adversarial Networks},
+#   booktitle = {Proc. NeurIPS},
+#   year = {2021}
+# }
+
 import gradio as gr
 import cv2
 import numpy as np

@@ -30,7 +30,10 @@ os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 from stylegan3_pre_processor import StyleGAN3PreProcessor
 
 
-class StyleGAN3Demo:
+class FrequencyNetDemo:
+    """FrequencyNet realtime demo with Gradio interface.
+    Implements a hybrid dual-domain neural architecture that combines spatial and frequency domain processing."""
+    
     def __init__(self, model_path=None):
         if torch.cuda.is_available():
             self.device = torch.device('cuda')
@@ -286,7 +289,7 @@ class StyleGAN3Demo:
 
 
 def create_demo(model_path=None):
-    processor = StyleGAN3Demo(model_path)
+    processor = FrequencyNetDemo(model_path)
     
     with gr.Blocks(title="StyleGAN3-Inspired Image Processor") as demo:
         gr.Markdown("""

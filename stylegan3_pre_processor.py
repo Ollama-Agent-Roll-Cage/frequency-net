@@ -9,7 +9,6 @@ from PIL import Image
 import argparse
 import math
 
-
 class LowpassFilter(nn.Module):
     """
     Applies a low-pass filter to prevent aliasing, inspired by StyleGAN3.
@@ -91,7 +90,11 @@ class FourierFeatures(nn.Module):
         return features.reshape(-1, self.out_channels, coords.shape[2], coords.shape[3])
 
 
-class StyleGAN3PreProcessor(nn.Module):
+class FrequencyNet(nn.Module):
+    """
+    FrequencyNet: A dual-domain neural architecture that combines spatial and frequency processing.
+    Implements a hybrid approach inspired by StyleGAN3's alias-free design principles.
+    """
     def __init__(self, input_channels=3, fourier_scale=10.0):
         super().__init__()
         self.fourier_scale = fourier_scale
@@ -174,7 +177,7 @@ def preprocess_images(input_dir, output_dir, model_path=None, batch_size=4):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     # Create model
-    model = StyleGAN3PreProcessor().to(device)
+    model = FrequencyNet().to(device)
     
     # Load weights if provided
     if model_path and os.path.exists(model_path):
@@ -252,7 +255,7 @@ def train_processor(train_dir, val_dir, output_model_path, epochs=10, batch_size
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     # Create model
-    model = StyleGAN3PreProcessor().to(device)
+    model = FrequencyNet().to(device)
     
     # Define transforms
     transform = transforms.Compose([
