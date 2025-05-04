@@ -30,6 +30,16 @@ FrequencyNet consists of three main components:
    - Output = α·Spatial_out + (1-α)·Frequency_out
    - α empirically set to 0.7 based on validation experiments
 
+## Example Input and Output
+
+Below is an example of how FrequencyNet processes an image.
+
+### Input Image
+![Input](assets/input.jpg)
+
+### Output Image
+![Output](assets/output.jpg)
+
 ## Requirements
 
 - Python 3.6+
