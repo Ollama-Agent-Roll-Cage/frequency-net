@@ -40,7 +40,9 @@ Here’s how FrequencyNet processes an image:
 
 | Input Image | Output Image |
 |------------|-------------|
-| ![Input](assets/input.jpg) | ![Output](assets/output.jpg) |
+| ![Input](assets/input1.jpg) | ![Output](assets/output1.jpg) |
+| ![Input](assets/input2.jpg) | ![Output](assets/output2.jpg) |
+| ![Input](assets/input3.jpg) | ![Output](assets/output3.jpg) |
 
 ## Requirements
 
