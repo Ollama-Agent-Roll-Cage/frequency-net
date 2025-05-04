@@ -27,8 +27,7 @@ MEMORY_FRACTION = 0.6  # More memory for processing
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
 # Import the StyleGAN3 preprocessor
-from stylegan3_pre_processor import StyleGAN3PreProcessor
-
+from frequency_net import FrequencyNet
 
 class FrequencyNetDemo:
     """FrequencyNet realtime demo with Gradio interface.
@@ -41,7 +40,7 @@ class FrequencyNetDemo:
         else:
             self.device = torch.device('cpu')
             
-        self.model = StyleGAN3PreProcessor()
+        self.model = FrequencyNet()
         self.model = self.model.to(self.device)
         
         # Initialize transform with default size

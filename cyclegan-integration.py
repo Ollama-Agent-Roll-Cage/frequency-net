@@ -2,7 +2,7 @@ import os
 import glob
 import shutil
 import argparse
-from stylegan3_pre_processor import preprocess_images
+from FrequencyNet import preprocess_images
 
 def prepare_dataset_for_cyclegan(input_dir, cyclegan_dataset_name, test_split=0.1):
     """

@@ -9,8 +9,7 @@ import numpy as np
 from tqdm import tqdm
 
 # Import the StyleGAN3 preprocessor
-from stylegan3_pre_processor import StyleGAN3PreProcessor
-
+from frequency_net import FrequencyNet
 
 def process_dataset(input_dir, output_dir, model_path=None, batch_size=4):
     """
@@ -37,7 +36,7 @@ def process_dataset(input_dir, output_dir, model_path=None, batch_size=4):
     print(f"Using device: {device}")
     
     # Create model
-    model = StyleGAN3PreProcessor().to(device)
+    model = FrequencyNet().to(device)
     
     # Load weights if provided
     if model_path and os.path.exists(model_path):
