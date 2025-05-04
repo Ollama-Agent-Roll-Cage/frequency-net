@@ -34,11 +34,13 @@ FrequencyNet consists of three main components:
 
 Below is an example of how FrequencyNet processes an image.
 
-### Input Image
-![Input](assets/input.jpg)
+## Example Input and Output
 
-### Output Image
-![Output](assets/output.jpg)
+Here’s how FrequencyNet processes an image:
+
+| Input Image | Output Image |
+|------------|-------------|
+| ![Input](assets/input.jpg) | ![Output](assets/output.jpg) |
 
 ## Requirements
 
