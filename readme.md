@@ -1,6 +1,6 @@
 # FrequencyNet: A Dual-Domain Signal Processing Architecture
 
-FrequencyNet is an advanced signal processing system that combines spatial and frequency domain transformations to enhance images. Inspired by StyleGAN3's alias-free design principles, FrequencyNet implements mathematical transforms for image enhancement.
+FrequencyNet is an advanced signal processing system that combines spatial and frequency domain transformations to enhance images. Inspired by StyleGAN3's alias-free design principles, FrequencyNet implements mathematical transforms for image enhancement. We also aim to produce similar outputs to SD normal map control nets, utilizing our own architechture for fourier series analysis. (https://huggingface.co/lllyasviel/sd-controlnet-normal)
 
 ## Key Features
 
