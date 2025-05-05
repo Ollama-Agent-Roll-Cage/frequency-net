@@ -83,15 +83,21 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 pip install pillow numpy gradio tqdm opencv-python
+
+# Virtual camera support
+pip install pyvirtualcam
+
+# For screen capture on Linux/MacOS:
+pip install mss
 ```
 
 4. Optional: For CycleGAN integration:
 ```bash
 # next to the FrequencyNet Repo clone the cycleGAN repo and create the cycleGAN ENV variable
-git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
-cd pytorch-CycleGAN-and-pix2pix
+git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix ../pytorch-CycleGAN-and-pix2pix
+cd ../pytorch-CycleGAN-and-pix2pix
 pip install -r requirements.txt
-cd ..
+cd ../frequency-net
 
 set env var for shared cycleGAN repo
 ```
@@ -149,6 +155,12 @@ The demo interface lets you adjust:
 - Frequency domain parameters
 - Color and detail enhancement settings
 
+### Real-time Video Processing
+
+Process webcam or screen capture with virtual camera output:
+```bash
+python frequency_net_webcam.py
+
 ### Batch Processing
 
 Process multiple images:
@@ -161,10 +173,17 @@ python batch-processor.py --mode process \
 
 Create comparisons:
 ```bash
+python batch-processor.py --mode process \
+    --input_dir path/to/input \
+    --output_dir path/to/output \
+    --batch_size 4 \
+    --model_path path/to/model.pth  # optional
+
 python batch-processor.py --mode compare \
     --input_dir path/to/input \
     --output_dir path/to/processed \
-    --comparison_dir path/to/comparisons
+    --comparison_dir path/to/comparisons \
+    --num_samples 5  # optional
 ```
 
 ### Real-time Video Processing
