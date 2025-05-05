@@ -229,3 +229,14 @@ If you use this model in your research, please cite our work and the original St
 ```
 
 StyleGAN3 official implementation: [https://github.com/NVlabs/stylegan3](https://github.com/NVlabs/stylegan3)
+
+```bibtex
+@misc{borcherding2025frequencynet,
+  author = {Leo Borcherding},
+  title = {FrequencyNet: A Dual-Domain Signal Processing Architecture},
+  year = {2025},
+  publisher = {GitHub},
+  howpublished = {\url{https://github.com/Ollama-Agent-Roll-Cage/frequency-net}},
+  note = {An advanced signal processing system combining spatial and frequency domain transformations for image enhancement. Inspired by StyleGAN3's alias-free principles, FrequencyNet utilizes Fourier transforms and wavelet filtering.}
+}
+```
